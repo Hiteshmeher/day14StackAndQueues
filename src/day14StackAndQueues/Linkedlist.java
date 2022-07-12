@@ -77,27 +77,43 @@ public class Linkedlist<T> {
 //		prevNode.next = newNode;
 //		newNode.next = tempNode;
 //	}
+	 public void pop() {
+	        head = head.next;
+	    }
+	public Object pop(int data) {
+		/**
+		 * finding second last node as temp
+		 * and temp.next means the last node defined as null
+		 * 
+		 */
+		if (head == null) {
+			return null;
+		}
+		if (head.next == null) {
+			return null;
+		}
+		Node temp = head;
+		while (temp.next.next != null)
+			temp = temp.next;
 
-//	public Object pop(int data) {
-//		/**
-//		 * finding second last node as temp
-//		 * and temp.next means the last node defined as null
-//		 * 
-//		 */
-//		if (head == null) {
-//			return null;
-//		}
-//		if (head.next == null) {
-//			return null;
-//		}
-//		Node temp = head;
-//		while (temp.next.next != null)
-//			temp = temp.next;
-//
-//		temp.next = null;
-//
-//		return head;
-//	}
+		temp.next = null;
+
+		return head;
+	}
+	
+	public int size() {
+		/**
+		 * size of the stack
+		 */
+        Node temp=head;
+        int count = 0;
+        while(temp!=null)
+        {
+            temp=temp.next;
+            count++;
+        }
+        return count;
+    }
 
 	public Node search(int data) {
 		/**
